@@ -45,19 +45,6 @@ avg_low_temp_plot <- weather %>%
   geom_line(color = "blue")+
   geom_smooth(color = "black")
 
-weather %>% 
-  mutate(year = year(date)) %>%
-  group_by(year) %>% 
-  summarize(avg_low_t = mean(t_min_f, na.rm = TRUE),
-            avg_high_t = mean(t_max_f, na.rm = TRUE)) %>% 
-  ggplot(aes(x=year)) +
-  geom_line(aes(y=avg_low_t, color = 'low')) +
-  geom_smooth(aes(y=avg_low_t, color = 'low')) +
-  geom_line(aes(y=avg_high_t, color = 'high')) +
-  geom_smooth(aes(y=avg_high_t, color = 'high')) +
-  xlab("year") + ylab("average temp (F)")
-
-
 
   
   
